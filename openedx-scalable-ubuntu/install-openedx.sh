@@ -72,10 +72,10 @@ cd playbooks
 export ANSIBLE_OPT_VARS="-e@$ANSIBLE_ROOT/server-vars.yml -e@$ANSIBLE_ROOT/extra-vars.yml"
 export ANSIBLE_OPT_SSH="-u $ADMIN_USER --private-key=$ADMIN_HOME/.ssh/id_rsa"
 
-sudo ansible-playbook edx_mongo.yml -i "openedx-mongo," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
+sudo ansible-playbook mongo.yml -i "openedx-mongo," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
-sudo ansible-playbook edx_mysql.yml -i "openedx-mysql," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
+sudo ansible-playbook mysql.yml -i "openedx-mysql," $ANSIBLE_OPT_SSH $ANSIBLE_OPT_VARS
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 
 sudo ansible-playbook edx_sandbox.yml -i "localhost," -c local $ANSIBLE_OPT_VARS -e "migrate_db=yes"
