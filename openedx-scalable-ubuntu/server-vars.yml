@@ -33,14 +33,14 @@ EDXAPP_FEATURES:
   ENABLE_INSTRUCTOR_EMAIL: true
   #REQUIRE_COURSE_EMAIL_AUTH: true
   PREVIEW_LMS_BASE: "{{ EDXAPP_PREVIEW_LMS_BASE }}"
-  DISABLE_COURSE_CREATION: true
+  DISABLE_COURSE_CREATION: false
 
 # Configure remote SMTP server
 #EDXAPP_EMAIL_HOST_USER: "username"
 #EDXAPP_EMAIL_HOST_PASSWORD: "password"
-#EDXAPP_EMAIL_HOST: "smtp.live.com"
-#EDXAPP_EMAIL_PORT: 25
-#EDXAPP_EMAIL_USE_TLS: true
+EDXAPP_EMAIL_HOST: "smtp.gmail.com"
+EDXAPP_EMAIL_PORT: 587
+EDXAPP_EMAIL_USE_TLS: true
 EDXAPP_EMAIL_HOST: "openedx-mysql"
 
 # Configure email addresses
@@ -63,3 +63,4 @@ EDXAPP_MEMCACHE: ["openedx-mysql:11211"]
 MONGO_BIND_IP: "0.0.0.0"
 FORUM_MONGO_HOSTS: ["openedx-mongo"]
 EDXAPP_MONGO_HOSTS: ["openedx-mongo"]
+mysql_bind_address: '0.0.0.0'
