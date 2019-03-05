@@ -9,13 +9,14 @@ ADMIN_USER=$2
 ADMIN_PASS=$3
 ADMIN_HOME=/home/$ADMIN_USER
 
-EDX_VERSION="named-release/dogwood.rc"
+EDX_VERSION="open-release/hawthorn.master"
+OPENEDX_RELEASE=$EDX_VERSION
 
 # Run edX bootstrap
 ANSIBLE_ROOT=/edx/app/edx_ansible
 CONFIGURATION_REPO=https://github.com/Microsoft/edx-configuration.git
-CONFIGURATION_VERSION="lex/scalable-dogwood"
-wget https://raw.githubusercontent.com/edx/configuration/master/util/install/ansible-bootstrap.sh -O- | bash
+CONFIGURATION_VERSION=$EDX_VERSION
+wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/ansible-bootstrap.sh -O- | bash
 
 # Stage configuration files
 PLATFORM_REPO=https://github.com/edx/edx-platform.git
