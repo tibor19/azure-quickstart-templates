@@ -22,7 +22,7 @@ EDXAPP_PREVIEW_LMS_BASE: "preview-{{ EDXAPP_LMS_BASE }}"
 # see: https://github.com/MSOpenTech/edx-documentation/blob/master/en_us/install_operations/source/configuration/enable_sso.rst
 EDXAPP_ENABLE_THIRD_PARY_AUTH: true
 #EDXAPP_ENABLE_OAUTH2_PROVIDER: true
-EDXAPP_SOCIAL_AUTH_OAUTH_SECRETS: "{ "azuread-oauth2": "oyqpAfewqJZZiPcqOdk7lcHsn+sMYg4/KXtWbd5rop0=" }"
+EDXAPP_SOCIAL_AUTH_OAUTH_SECRETS: '{ "azuread-oauth2": "oyqpAfewqJZZiPcqOdk7lcHsn+sMYg4/KXtWbd5rop0=" }'
 
 # Configure Open edX features
 # see: http://edx.readthedocs.org/projects/edx-installing-configuring-and-running/en/latest/feature_flags/feature_flag_index.html
