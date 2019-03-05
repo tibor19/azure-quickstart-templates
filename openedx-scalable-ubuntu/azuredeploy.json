@@ -4,7 +4,7 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
-      "defaultValue": "openedxuser",
+      "defaultValue": "tibi",
       "metadata": {
         "description": "Administrator username."
       }
@@ -17,6 +17,7 @@
     },
     "dnsLabelPrefix": {
       "type": "string",
+      "defaultValue": "openedx-ha",
       "metadata": {
         "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
       }
@@ -119,7 +120,7 @@
     "availabilitySetName": "avail-set",
     "osImagePublisher": "Canonical",
     "osImageOffer": "UbuntuServer",
-    "osImageSKU": "12.04.5-LTS",
+    "osImageSKU": "16.04.0-LTS",
     "appVmName": "openedx-app",
     "mySqlVmName": "openedx-mysql",
     "mongoVmName": "openedx-mongo",
