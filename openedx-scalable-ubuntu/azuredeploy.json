@@ -15,6 +15,19 @@
         "description": "Administrator password."
       }
     },
+    "emailUsername": {
+      "type": "string",
+      "defaultValue": "tibi",
+      "metadata": {
+        "description": "e-mail username."
+      }
+    },
+    "emailPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "e-mail password."
+      }
+    },
     "dnsLabelPrefix": {
       "type": "string",
       "metadata": {
@@ -115,7 +128,7 @@
   "variables": {
     "scriptDownloadUri": "https://raw.githubusercontent.com/tibor19/azure-quickstart-templates/master/openedx-scalable-ubuntu/",
     "installScript": "install-openedx.sh",
-    "installCommand": "[concat('bash -c ''nohup ./', variables('installScript'), ' ', parameters('appVmCount'), ' ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' </dev/null &>/var/log/azure/openedx-install.log &''')]",
+    "installCommand": "[concat('bash -c ''nohup ./', variables('installScript'), ' ', parameters('appVmCount'), ' ', parameters('adminUsername'), ' ', parameters('adminPassword'), ' ', parameters('emailUsername'), ' ', parameters('emailPassword'), ' </dev/null &>/var/log/azure/openedx-install.log &''')]",
     "availabilitySetName": "avail-set",
     "osImagePublisher": "Canonical",
     "osImageOffer": "UbuntuServer",
