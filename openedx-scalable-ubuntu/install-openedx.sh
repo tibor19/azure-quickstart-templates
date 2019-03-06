@@ -7,6 +7,8 @@ set -x
 APP_VM_COUNT=$1
 ADMIN_USER=$2
 ADMIN_PASS=$3
+EMAIL_USER=$4
+EMAIL_PASS=$5
 ADMIN_HOME=/home/$ADMIN_USER
 
 EDX_VERSION="open-release/hawthorn.master"
@@ -37,6 +39,8 @@ configuration_version: \"$CONFIGURATION_VERSION\"
 certs_version: \"$EDX_VERSION\"
 forum_version: \"$EDX_VERSION\"
 xqueue_version: \"$EDX_VERSION\"
+EDXAPP_EMAIL_HOST_USER: \"$EMAIL_USER\"
+EDXAPP_EMAIL_HOST_PASSWORD: \"$EMAIL_PASS\"
 COMMON_SSH_PASSWORD_AUTH: \"yes\"
 EOF"
 cp *.{ini,yml} $ANSIBLE_ROOT
