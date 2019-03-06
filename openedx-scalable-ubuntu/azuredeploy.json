@@ -252,7 +252,7 @@
               "description": "Allow connection to Open edX LMS",
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRanges": ["80,443"],
+              "destinationPortRanges": ["80", "443"],
               "sourceAddressPrefix": "*",
               "destinationAddressPrefix": "*",
               "access": "Allow",
