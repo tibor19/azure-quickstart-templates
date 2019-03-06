@@ -10,13 +10,15 @@ ADMIN_PASS=$3
 ADMIN_HOME=/home/$ADMIN_USER
 
 EDX_VERSION="open-release/hawthorn.master"
-OPENEDX_RELEASE=$EDX_VERSION
 
 # Run edX bootstrap
 ANSIBLE_ROOT=/edx/app/edx_ansible
-CONFIGURATION_REPO=https://github.com/Microsoft/edx-configuration.git
-CONFIGURATION_VERSION=$EDX_VERSION
-wget https://raw.githubusercontent.com/edx/configuration/$OPENEDX_RELEASE/util/install/ansible-bootstrap.sh -O- | bash
+CONFIGURATION=tibor19/edx-configuration
+CONFIGURATION_VERSION="open-release/hawthorn.master"
+
+CONFIGURATION_REPO=https://github.com/$CONFIGURATION.git
+
+wget https://raw.githubusercontent.com/$CONFIGURATION/$CONFIGURATION_VERSION/util/install/ansible-bootstrap.sh -O- | bash
 
 # Stage configuration files
 PLATFORM_REPO=https://github.com/edx/edx-platform.git
@@ -62,10 +64,10 @@ send-ssh-key openedx-mongo $ADMIN_USER $ADMIN_PASS
 
 # Install edX platform
 cd /tmp
-git clone $CONFIGURATION_REPO configuration
+git clone $CONFIGURATION_REPO --branch $CONFIGURATION_VERSION --single-branch --depth 1 configuration
 
 cd configuration
-git checkout $CONFIGURATION_VERSION
+# git checkout $CONFIGURATION_VERSION
 pip install -r requirements.txt
 
 cd playbooks
